@@ -1,0 +1,14 @@
+name: C/C++ CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile with Makefile
+        run: make -j8
+      - name: Regression with Catch2
+        if: ${{ success() }}
+        run: make test

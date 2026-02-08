@@ -1,0 +1,73 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+*.egg-info/
+
+# Build artifacts
+build/
+dist/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.bak
+*.log
+
+# SSAT specific
+*sdimacs*
+*/*sdimacs*
+
+# Data outputs
+data/output/
+data/model*
+doc/data/model/
+data/raw/reduced*
+data/raw/repaired*
+
+# Old requirements (if any)
+requirements-old.txt
+
+# Backup directories
+backup_output/
+*backup*/
+
+# External dependencies (if separately cloned)
+aif360/
+fair_Max_Entropy_Distributions/
+verifair/
+fairsquare/
+pgmpy_notebook/
+notears/
+tests/
