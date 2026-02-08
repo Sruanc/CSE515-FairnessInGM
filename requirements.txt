@@ -37,3 +37,6 @@ isort>=5.10.0
 # Utilities
 python-dateutil>=2.8.0
 pytz>=2021.3
+
+# Justicia dependencies (or reference justicia/requirements.txt)
+-r justicia/requirements.txt
