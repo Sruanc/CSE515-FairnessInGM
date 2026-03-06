@@ -1,0 +1,304 @@
+{
+  "dataset": "adult",
+  "model": "lr",
+  "encoding": "best-correlated",
+  "fraction": 1.0,
+  "configs": [
+    2,
+    6,
+    0,
+    4
+  ],
+  "summaries": [
+    {
+      "config": 2,
+      "sensitive_attributes": [
+        "sex"
+      ],
+      "sensitive_attribute_cardinalities": [
+        2
+      ],
+      "num_compound_groups_estimate": 2,
+      "mean_di": 0.7259402492953513,
+      "mean_spd": 0.12807368387969767,
+      "mean_p_max": 0.4673027204856187,
+      "mean_p_min": 0.339229036605921,
+      "mean_time_sec": 1.5303603172302247,
+      "mean_num_compound_groups": 2,
+      "rows": [
+        {
+          "fold": 0,
+          "di": 0.7207651023602789,
+          "spd": 0.1308153106609879,
+          "p_max": 0.468477657222381,
+          "p_min": 0.3376623465613931,
+          "time_sec": 1.5231208801269531,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 1,
+          "di": 0.7231927793458506,
+          "spd": 0.13043288302306189,
+          "p_max": 0.4712047710129222,
+          "p_min": 0.3407718879898603,
+          "time_sec": 1.5064518451690674,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 2,
+          "di": 0.7490550232795068,
+          "spd": 0.11684584937841286,
+          "p_max": 0.4656233844782547,
+          "p_min": 0.34877753509984183,
+          "time_sec": 1.5580568313598633,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 3,
+          "di": 0.7167390822256223,
+          "spd": 0.1313821436576033,
+          "p_max": 0.4638202286778281,
+          "p_min": 0.33243808502022476,
+          "time_sec": 1.5601272583007812,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 4,
+          "di": 0.7199492592654976,
+          "spd": 0.13089223267842243,
+          "p_max": 0.46738756103670764,
+          "p_min": 0.3364953283582852,
+          "time_sec": 1.504044771194458,
+          "num_compound_groups": 2
+        }
+      ]
+    },
+    {
+      "config": 6,
+      "sensitive_attributes": [
+        "sex",
+        "age"
+      ],
+      "sensitive_attribute_cardinalities": [
+        2,
+        4
+      ],
+      "num_compound_groups_estimate": 8,
+      "mean_di": 0.43776192587195967,
+      "mean_spd": 0.3238833150002114,
+      "mean_p_max": 0.5760618935646911,
+      "mean_p_min": 0.2521785785644797,
+      "mean_time_sec": 1.277000093460083,
+      "mean_num_compound_groups": 2,
+      "rows": [
+        {
+          "fold": 0,
+          "di": 0.4364044213028627,
+          "spd": 0.3239130488787259,
+          "p_max": 0.5747260289506085,
+          "p_min": 0.25081298007188263,
+          "time_sec": 1.2168035507202148,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 1,
+          "di": 0.44097318416539005,
+          "spd": 0.322240126322592,
+          "p_max": 0.5764305346273906,
+          "p_min": 0.25419040830479855,
+          "time_sec": 1.1610090732574463,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 2,
+          "di": 0.437800621821736,
+          "spd": 0.32238737698408343,
+          "p_max": 0.5734395829976529,
+          "p_min": 0.2510522060135694,
+          "time_sec": 1.3040437698364258,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 3,
+          "di": 0.43837690140561913,
+          "spd": 0.3251804669765962,
+          "p_max": 0.5790012337285475,
+          "p_min": 0.2538207667519513,
+          "time_sec": 1.330134391784668,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 4,
+          "di": 0.43525450066419047,
+          "spd": 0.3256955558390593,
+          "p_max": 0.576712087519256,
+          "p_min": 0.25101653168019666,
+          "time_sec": 1.3730096817016602,
+          "num_compound_groups": 2
+        }
+      ]
+    },
+    {
+      "config": 0,
+      "sensitive_attributes": [
+        "race",
+        "sex"
+      ],
+      "sensitive_attribute_cardinalities": [
+        2,
+        5
+      ],
+      "num_compound_groups_estimate": 10,
+      "mean_di": 0.6108015192529451,
+      "mean_spd": 0.18485382936727554,
+      "mean_p_max": 0.47491857417203415,
+      "mean_p_min": 0.2900647448047586,
+      "mean_time_sec": 1.4241271495819092,
+      "mean_num_compound_groups": 2,
+      "rows": [
+        {
+          "fold": 0,
+          "di": 0.6011223817217913,
+          "spd": 0.18988441254336658,
+          "p_max": 0.4760467969173598,
+          "p_min": 0.2861623843739932,
+          "time_sec": 1.5048511028289795,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 1,
+          "di": 0.6043977001547909,
+          "spd": 0.18948577013206502,
+          "p_max": 0.47898045639827375,
+          "p_min": 0.2894946862662087,
+          "time_sec": 1.3956961631774902,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 2,
+          "di": 0.6504542134574545,
+          "spd": 0.16525961628921687,
+          "p_max": 0.4727838888399875,
+          "p_min": 0.30752427255077064,
+          "time_sec": 1.4153530597686768,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 3,
+          "di": 0.5978762009930705,
+          "spd": 0.18959288907123728,
+          "p_max": 0.47147890659406155,
+          "p_min": 0.2818860175228243,
+          "time_sec": 1.398329734802246,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 4,
+          "di": 0.6001570999376182,
+          "spd": 0.19004645880049192,
+          "p_max": 0.4753028221104881,
+          "p_min": 0.28525636330999615,
+          "time_sec": 1.4064056873321533,
+          "num_compound_groups": 2
+        }
+      ]
+    },
+    {
+      "config": 4,
+      "sensitive_attributes": [
+        "race",
+        "sex",
+        "age"
+      ],
+      "sensitive_attribute_cardinalities": [
+        2,
+        4,
+        5
+      ],
+      "num_compound_groups_estimate": 40,
+      "mean_di": 0.40469213802247567,
+      "mean_spd": 0.34316486029688814,
+      "mean_p_max": 0.5763643744319027,
+      "mean_p_min": 0.2331995141350146,
+      "mean_time_sec": 1.112116003036499,
+      "mean_num_compound_groups": 2,
+      "rows": [
+        {
+          "fold": 0,
+          "di": 0.4364044213028627,
+          "spd": 0.3239130488787259,
+          "p_max": 0.5747260289506085,
+          "p_min": 0.25081298007188263,
+          "time_sec": 1.1062650680541992,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 1,
+          "di": 0.27562424491796994,
+          "spd": 0.4186478528059758,
+          "p_max": 0.5779429389634487,
+          "p_min": 0.15929508615747295,
+          "time_sec": 1.1849710941314697,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 2,
+          "di": 0.437800621821736,
+          "spd": 0.32238737698408343,
+          "p_max": 0.5734395829976529,
+          "p_min": 0.2510522060135694,
+          "time_sec": 1.0864968299865723,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 3,
+          "di": 0.43837690140561913,
+          "spd": 0.3251804669765962,
+          "p_max": 0.5790012337285475,
+          "p_min": 0.2538207667519513,
+          "time_sec": 1.0658962726593018,
+          "num_compound_groups": 2
+        },
+        {
+          "fold": 4,
+          "di": 0.43525450066419047,
+          "spd": 0.3256955558390593,
+          "p_max": 0.576712087519256,
+          "p_min": 0.25101653168019666,
+          "time_sec": 1.1169507503509521,
+          "num_compound_groups": 2
+        }
+      ]
+    }
+  ],
+  "trend_checks": {
+    "ordered_by_compound_groups": [
+      {
+        "config": 2,
+        "groups": 2,
+        "mean_di": 0.7259402492953513,
+        "mean_spd": 0.12807368387969767
+      },
+      {
+        "config": 6,
+        "groups": 8,
+        "mean_di": 0.43776192587195967,
+        "mean_spd": 0.3238833150002114
+      },
+      {
+        "config": 0,
+        "groups": 10,
+        "mean_di": 0.6108015192529451,
+        "mean_spd": 0.18485382936727554
+      },
+      {
+        "config": 4,
+        "groups": 40,
+        "mean_di": 0.40469213802247567,
+        "mean_spd": 0.34316486029688814
+      }
+    ],
+    "di_non_increasing_with_more_groups": false,
+    "spd_non_decreasing_with_more_groups": false
+  }
+}

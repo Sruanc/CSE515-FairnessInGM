@@ -1,0 +1,70 @@
+{
+  "summary": {
+    "baseline": "results_adult_cfg0_lr_best_frac0p5.json",
+    "candidate": "results_adult_cfg0_lr_best-correlated_frac0p5.json",
+    "baseline_label": "lr_best",
+    "candidate_label": "lr_best_correlated",
+    "num_common_folds": 5,
+    "mean_delta_di": 0.0,
+    "mean_delta_spd": 0.0,
+    "mean_improve_toward_fair_di": 0.0,
+    "mean_improve_toward_fair_spd": 0.0
+  },
+  "rows": [
+    {
+      "fold": 0,
+      "baseline_di": 0.4138597907366575,
+      "candidate_di": 0.4138597907366575,
+      "delta_di": 0.0,
+      "baseline_spd": 0.2720274160161127,
+      "candidate_spd": 0.2720274160161127,
+      "delta_spd": 0.0,
+      "improve_toward_fair_di": 0.0,
+      "improve_toward_fair_spd": 0.0
+    },
+    {
+      "fold": 1,
+      "baseline_di": 0.29115353830776713,
+      "candidate_di": 0.29115353830776713,
+      "delta_di": 0.0,
+      "baseline_spd": 0.3291717993304373,
+      "candidate_spd": 0.3291717993304373,
+      "delta_spd": 0.0,
+      "improve_toward_fair_di": 0.0,
+      "improve_toward_fair_spd": 0.0
+    },
+    {
+      "fold": 2,
+      "baseline_di": 0.3540514823181437,
+      "candidate_di": 0.3540514823181437,
+      "delta_di": 0.0,
+      "baseline_spd": 0.2996375694172675,
+      "candidate_spd": 0.2996375694172675,
+      "delta_spd": 0.0,
+      "improve_toward_fair_di": 0.0,
+      "improve_toward_fair_spd": 0.0
+    },
+    {
+      "fold": 3,
+      "baseline_di": 0.34157861907559867,
+      "candidate_di": 0.34157861907559867,
+      "delta_di": 0.0,
+      "baseline_spd": 0.30550440121555666,
+      "candidate_spd": 0.30550440121555666,
+      "delta_spd": 0.0,
+      "improve_toward_fair_di": 0.0,
+      "improve_toward_fair_spd": 0.0
+    },
+    {
+      "fold": 4,
+      "baseline_di": 0.3812584079970143,
+      "candidate_di": 0.3812584079970143,
+      "delta_di": 0.0,
+      "baseline_spd": 0.30307079735310927,
+      "candidate_spd": 0.30307079735310927,
+      "delta_spd": 0.0,
+      "improve_toward_fair_di": 0.0,
+      "improve_toward_fair_spd": 0.0
+    }
+  ]
+}
