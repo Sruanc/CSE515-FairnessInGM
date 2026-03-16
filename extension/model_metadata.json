@@ -1,0 +1,23 @@
+{
+  "model_type": "DecisionTreeClassifier",
+  "max_depth": 5,
+  "n_leaves": 26,
+  "n_nodes": 51,
+  "train_accuracy": 0.9353333333333333,
+  "test_accuracy": 0.9386666666666666,
+  "features": [
+    "is_vru",
+    "rural_jurisdiction",
+    "hit_and_run",
+    "night_crash",
+    "adverse_weather",
+    "intersection",
+    "multiple_vehicles"
+  ],
+  "sensitive_features": [
+    "is_vru",
+    "rural_jurisdiction"
+  ],
+  "n_train": 12000,
+  "n_test": 3000
+}
