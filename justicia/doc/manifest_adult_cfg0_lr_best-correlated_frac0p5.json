@@ -1,0 +1,39 @@
+{
+  "dataset": "adult",
+  "config": 0,
+  "encoding": "best-correlated",
+  "fraction": 0.5,
+  "class_weight": "balanced",
+  "methods": {
+    "orig": {
+      "file": "results_adult_cfg0_lr_best-correlated_frac0p5_orig.json",
+      "aggregate": {
+        "mean_di": 0.3563803676870363,
+        "mean_spd": 0.3018823966664967,
+        "mean_p_max": 0.4692323626849368,
+        "mean_p_min": 0.1673499660184401,
+        "mean_time_sec": 0.30380892753601074
+      }
+    },
+    "rw": {
+      "file": "results_adult_cfg0_lr_best-correlated_frac0p5_rw.json",
+      "aggregate": {
+        "mean_di": 0.8036521072832883,
+        "mean_spd": 0.09708830229275389,
+        "mean_p_max": 0.49411027219770376,
+        "mean_p_min": 0.39702196990494987,
+        "mean_time_sec": 0.36816844940185545
+      }
+    },
+    "op": {
+      "file": "results_adult_cfg0_lr_best-correlated_frac0p5_op.json",
+      "aggregate": {
+        "mean_di": 0.6297190368094342,
+        "mean_spd": 0.1441533345541606,
+        "mean_p_max": 0.3733647059072477,
+        "mean_p_min": 0.22921137135308708,
+        "mean_time_sec": 0.2075620174407959
+      }
+    }
+  }
+}

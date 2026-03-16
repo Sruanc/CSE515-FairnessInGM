@@ -7,6 +7,7 @@ import statistics as stats
 import sys
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import KFold
@@ -124,6 +125,109 @@ def reweighing_weights(x_train, y_train, sens_cols):
     return out
 
 
+def _op_binned_frame(x_train, x_test):
+    train = x_train.copy()
+    test = x_test.copy()
+
+    for col in train.columns:
+        nunique = train[col].nunique()
+        if nunique > 8:
+            edges = np.unique(np.quantile(train[col], [0, 0.25, 0.5, 0.75, 1.0]))
+            if len(edges) < 2:
+                train[col] = 0.0
+                test[col] = 0.0
+            else:
+                train[col] = pd.cut(
+                    train[col],
+                    bins=edges,
+                    include_lowest=True,
+                    labels=False,
+                    duplicates="drop",
+                ).astype(float)
+                test[col] = pd.cut(
+                    test[col],
+                    bins=edges,
+                    include_lowest=True,
+                    labels=False,
+                    duplicates="drop",
+                ).fillna(-1).astype(float)
+        else:
+            train[col] = train[col].astype(float)
+            test[col] = test[col].astype(float)
+
+    return train, test
+
+
+def _op_distortion(sens_cols):
+    def distortion(vold, vnew):
+        bad = 10.0
+        total = 0.0
+        for key, old in vold.items():
+            new = vnew.get(key, old)
+            if key in sens_cols and new != old:
+                return bad
+            if key == "target":
+                if new != old:
+                    total += 1.0
+            elif new != old:
+                total += 0.5
+        return total
+
+    return distortion
+
+
+def apply_optimized_preprocessing(x_train, y_train, x_test, sens_cols):
+    from aif360.algorithms.preprocessing.optim_preproc import OptimPreproc
+    from aif360.algorithms.preprocessing.optim_preproc_helpers.opt_tools import OptTools
+    from aif360.datasets import BinaryLabelDataset
+
+    x_train_binned, x_test_binned = _op_binned_frame(x_train, x_test)
+    train_df = x_train_binned.copy()
+    train_df["target"] = y_train.astype(float)
+    test_df = x_test_binned.copy()
+    test_df["target"] = 0.0
+
+    train_bld = BinaryLabelDataset(
+        df=train_df,
+        label_names=["target"],
+        protected_attribute_names=sens_cols,
+        favorable_label=1.0,
+        unfavorable_label=0.0,
+    )
+    test_bld = BinaryLabelDataset(
+        df=test_df,
+        label_names=["target"],
+        protected_attribute_names=sens_cols,
+        favorable_label=1.0,
+        unfavorable_label=0.0,
+    )
+    meta = {
+        "label_maps": [{1.0: "1", 0.0: "0"}],
+        "protected_attribute_maps": [{1.0: "1", 0.0: "0"} for _ in sens_cols],
+    }
+    train_bld.metadata.update(meta)
+    test_bld.metadata.update(meta)
+
+    optim_options = {
+        "distortion_fun": _op_distortion(sens_cols),
+        "epsilon": 0.05,
+        "clist": [0.99, 1.99, 2.99],
+        "dlist": [0.1, 0.05, 0.0],
+    }
+    op = OptimPreproc(OptTools, optim_options, verbose=False)
+    op = op.fit(train_bld)
+    train_transformed = op.transform(train_bld, transform_Y=True)
+    test_transformed = op.transform(test_bld, transform_Y=True)
+
+    transformed_train_df = train_transformed.convert_to_dataframe()[0]
+    transformed_test_df = test_transformed.convert_to_dataframe()[0]
+    x_train_out = transformed_train_df.drop(columns=["target"]).astype(float)
+    y_train_out = transformed_train_df["target"].round().astype(int)
+    x_test_out = transformed_test_df.drop(columns=["target"]).astype(float)
+
+    return x_train_out, y_train_out, x_test_out
+
+
 def run_method(
     method,
     x,
@@ -152,11 +256,12 @@ def run_method(
         if method == "rw":
             sample_weight = reweighing_weights(x_train, y_train, sens_cols)
 
-        # NOTE: OP needs aif360's OptimPreproc implementation.
         if method == "op":
-            raise RuntimeError(
-                "Method 'op' is reserved for aif360 Optimized Preprocessing and "
-                "is not enabled in this script without aif360."
+            x_train, y_train, x_test = apply_optimized_preprocessing(
+                x_train=x_train,
+                y_train=y_train,
+                x_test=x_test,
+                sens_cols=sens_cols,
             )
 
         clf = LogisticRegression(
@@ -219,7 +324,7 @@ def main():
     parser = argparse.ArgumentParser(
         description=(
             "Run paper-style mitigation comparison for Justicia verification. "
-            "Supported methods: orig, rw (op requires aif360)."
+            "Supported methods: orig, rw, op (OP requires aif360 and cvxpy)."
         )
     )
     parser.add_argument("--dataset", choices=["adult", "compas"], default="adult")
